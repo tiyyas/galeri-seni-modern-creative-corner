@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GALERI SENI KITA | Contact</title>
+    <link rel="stylesheet" type="text/css" href="comentsection.css">
+    <link rel="stylesheet" href="img/icons/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="museum.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            /* Minimum height full viewport */
+        }
+
+        .container {
+            flex: 1;
+            /* Expand container to fill remaining vertical space */
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            justify-content: left;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        .tlogo {
+            margin: 10px 0;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            width: 100%;
+            margin-top: auto;
+            /* Push footer to the bottom */
+        }
+
+        footer h5,
+        footer h6 {
+            margin: 5px 0;
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .col-1 {
+            width: 45%;
+            /* Adjust column width as needed */
+        }
+
+        .commentbox {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            /* Adjust margin bottom for spacing */
+        }
+
+        .buttons {
+            display: flex;
+            align-items: center;
+            margin-left: 10px;
+            /* Adjust margin left for spacing */
+        }
+
+        .buttons button {
+            margin-right: 10px;
+            /* Adjust margin between buttons */
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            width: 100%;
+        }
+
+        footer h5,
+        footer h6 {
+            margin: 5px 0;
+        }
+    </style>
+
+    <script>
+        async function sendComment() {
+            const url = "https://api-komentar-pengunjung.desafintech.com/api/comments";
+            const name = document.getElementById('nama').value;
+            const comment = document.getElementById('komentarr').value;
+
+            const payload = {
+                websiteId: "a0ab4ba3-add1-40e3-bf44-dd64810f5f0a", // ganti web id mu
+                comment: comment,
+                name: name || 'Anonim'
+            };
+
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                if (response.ok) {
+                    const jsonResponse = await response.json();
+                    alert('Komentar berhasil dikirim!');
+                    console.log(jsonResponse);
+                    getComments();
+                } else {
+                    const errorText = await response.text();
+                    alert(`Terjadi kesalahan: ${response.status} - ${errorText}`);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Terjadi kesalahan saat mengirim komentar.');
+            }
+        }
+
+        function getComments() {
+            var token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEwMjUsImlhdCI6MTcyMTMyNTE2MSwiZXhwIjoxNzIxMzI4NzYxfQ.3GuI5bUBjrOZYuNDSiHQrNMfQbo18MeFS1JOtu4pXW4";
+            var websiteId = 'a0ab4ba3-add1-40e3-bf44-dd64810f5f0a'; //ganti token kro website idmu
+            if (!token) {
+                alert('Anda perlu login terlebih dahulu!');
+                return;
+            }
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", `https://api-komentar-pengunjung.desafintech.com/api/website_comments/${websiteId}`, true);
+            xhr.setRequestHeader("Authorization", "Bearer " + token);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        var response = JSON.parse(xhr.responseText);
+                        var commentsDiv = document.getElementById('commentsContainer');
+                        commentsDiv.innerHTML = ''; // Kosongkan kontainer komentar sebelum menambahkan yang baru
+                        response.data.forEach(function (comment) {
+                            displayComment(comment);
+                        });
+                    } else {
+                        console.error('Error:', xhr.responseText);
+                    }
+                }
+            };
+
+            xhr.send();
+        }
+
+        function displayComment(comment) {
+            var commentsContainer = document.getElementById('commentsContainer');
+
+            var commentDiv = document.createElement('div');
+            commentDiv.classList.add('comment');
+
+            var authorDiv = document.createElement('div');
+            authorDiv.classList.add('author');
+
+            // Tampilkan nama dari komentar jika ada, atau tampilkan 'Anonim'
+            var name = comment.name || 'Anonim';
+            authorDiv.textContent = name;
+
+            var textDiv = document.createElement('div');
+            textDiv.textContent = comment.comment;
+
+            commentDiv.appendChild(authorDiv);
+            commentDiv.appendChild(textDiv);
+
+            commentsContainer.appendChild(commentDiv);
+        }
+
+        document.addEventListener('DOMContentLoaded', getComments);
+    </script>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="navbar">
+            <a href="login.html"><img src="image/ini logo.png" style="width: 150px; height: 150px;" id="logo"></a>
+            <h1 class="tlogo">Creative Corner</h1>
+            <p>Modern Art Gallery</p>
+            <nav>
+                <ul>
+                    <li><a href="index museum.html" class="menu">Home</a></li>
+                    <li><a href="profile.html" class="menu">MyProfile</a></li>
+                    <li><a href="about.html" class="menu">About</a></li>
+                    <li><a href="koleksi.html" class="menu">Collection</a></li>
+                    <li><a href="shop.html" class="menu">Shop</a></li>
+                    <li><a href="comentsection.html" class="menu">Comments</a></li>
+                    <li><a href="kontak.html" class="menu">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="head">
+            <h1>Post a Comment</h1>
+        </div>
+
+        <div class="commentbox">
+            <div class="content">
+                <input type="text" placeholder="Enter your name" class="user" id="nama">
+                <div class="commentinput">
+                    <input type="text" placeholder="Enter comment" class="usercomment" id="komentarr">
+                    <br>
+                    <h6 class="peringatan">*Nama akan disamarkan</h6>
+                    <button class="btn btn-primary" onclick="sendComment()">Kirim Komentar</button>
+                    <!-- beri ID trs tambahi css e -->
+                </div>
+                <p class="policy">This site is protected by reCAPTCHA and the Google <a href="#">privacy policy</a> and
+                    <a href="#">Terms of Service</a> apply.
+                </p><br>
+                <div class="head">
+                    <h1>Komentar Pengunjung</h1>
+                </div>
+                <br>
+                <div class="donate_taital_main">
+
+                    <div id="commentsContainer"></div>
+
+
+                    <div id="comments" class="comments"></div>
+
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="donate_section layout_padding">
+
+        </div>
+
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-1">
+                        <h5><i class="fa fa-info" style="color: white"></i> Informasi :</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-1">
+                        <h5><i class="fa fa-calendar-o" style="color: white"></i> Jam Kunjungan:</h5>
+                        <p>Senin-Kamis 08.00-16.00</p>
+                        <p>Sabtu-Minggu 08.00-14.00</p>
+                        <p>Jumat dan Libur Nasional Tutup</p>
+                        <br>
+                        <h5><i class="fa fa-address-card" style="color: white"></i> Tiket:</h5>
+                        <p>Pelajar/mahasiswa Rp 2.000</p>
+                        <p>Umum Rp 3.000</p>
+                        <p>Asing/pelajar asing Rp 10.000</p>
+                        <br>
+                    </div>
+                    <div class="col-1">
+                        <h5><i class="fa fa-thumb-tack" style="color: white"></i> ALAMAT</h5>
+                        <p>Jalan Jend.Sudirman No. 06 Surakarta 57118, Jawa Tengah, Indonesia</p>
+                        <br>
+                        <h5><i class="fa fa-phone" style="color: white"></i> KONTAK KAMI</h5>
+                        <p>Phone : + 62-22-721-3822</p>
+                        <p>Fax : + 62-22-721-3822</p>
+                        <p>Gmail : urbanbrushart@gmail.com</p>
+                        <br>
+                    </div>
+                </div>
+                <div class="copy">
+                    <h5>Copyright <i class="fa fa-copyright" style="color: white"></i> 2024 | Galeri Seni Kita | UTS
+                        Pemrograman Web | TI23A6 </h5>
+                    <h6>| (230103191) & (230103152) |</h6>
+                </div>
+            </div>
+        </footer>
+
+
+</body>
+
+</html>

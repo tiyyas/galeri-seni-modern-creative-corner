@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>GALERI SENI KITA | Contact</title>
+    <link rel="stylesheet" type="text/css" href="museum.css">
+    <link rel="stylesheet" href="img/icons/font-awesome/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="museum.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="navbar">
+            <a href="login.html"><img src="image/ini logo.png" style="width: 150px; height: 150px;" id="logo"></a>
+            <h1 class="tlogo">Creative Corner</h1>
+            <p>Modern Art Gallery</p>
+        </div>
+
+        <div class="login-container">
+            <h2>Login</h2>
+            <form id="login-form">
+                <input type="text" id="email" placeholder="Email" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+
+            <script>
+                document.getElementById('login-form').addEventListener('submit', function (event) {
+                    event.preventDefault();
+                    const email = document.getElementById('email').value;
+                    const password = document.getElementById('password').value;
+                    login(email, password);
+                });
+
+                // Fungsi untuk login
+                function login(email, password) {
+                    var xhr = new XMLHttpRequest();
+                    xhr.open("POST", "https://api-komentar-pengunjung.desafintech.com/api/users/signin", true);
+                    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState === XMLHttpRequest.DONE) {
+                            if (xhr.status === 200) {
+                                var response = JSON.parse(xhr.responseText);
+                                sessionStorage.setItem('token', response.token);
+                                sessionStorage.setItem('website_id', response.user.website_id);
+                                sessionStorage.setItem('email', email);
+                                alert('Login successful!');
+                                window.location.href = "index museum.html"; // Redirect to Home page
+                            } else {
+                                console.log('Error:', xhr.responseText);
+                                alert('Login failed!');
+                            }
+                        }
+                    };
+
+                    xhr.send(JSON.stringify({ email: email, password: password }));
+                }
+            </script>
+        </div>
+    </div>
+</body>
+
+</html>

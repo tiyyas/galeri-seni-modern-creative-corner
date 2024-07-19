@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Galeri Seni Kita | My Profile</title>
+    <link rel="stylesheet" type="text/css" href="museum.css">
+    <link rel="stylesheet" href="ima/icons/font-awesome/css/font-awesome.min.css">
+    <style>
+        /* CSS khusus untuk halaman profile */
+        .profile-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-container h2 {
+            text-align: center;
+        }
+
+        .profile-info {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .profile-info .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            object-fit: cover;
+        }
+
+        .logout-btn {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .logout-btn a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .logout-btn a:hover {
+            background-color: #8B4513;
+        }
+    </style>
+    <script>
+        // Panggil fungsi displayEmail saat dokumen telah dimuat
+        document.addEventListener('DOMContentLoaded', function () {
+            var email = sessionStorage.getItem('email');
+            if (email) {
+                document.getElementById('email').innerText = email;
+            } else {
+                alert('You are not logged in!');
+                window.location.href = "login.html";
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="navbar">
+            <a href="index museum.html"><img src="image/ini logo.png" style="width: 150px; height: 150px;"
+                    id="logo"></a>
+            <h1 class="tlogo">Creative Corner</h1>
+            <p>Modern Art Gallery</p>
+            <nav>
+                <ul>
+                    <li><a href="index museum.html" class="menu">Home</a></li>
+                    <li><a href="profile.html" class="menu">My Profile</a></li>
+                    <li><a href="about.html" class="menu">About</a></li>
+                    <li><a href="koleksi.html" class="menu">Collection</a></li>
+                    <li><a href="shop.html" class="menu">Shop</a></li>
+                    <li><a href="comentsection.html" class="menu">Comments</a></li>
+                    <li><a href="kontak.html" class="menu">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="profile-container">
+            <h2>My Profile</h2>
+            <style>
+                text
+            </style>
+            <div class="profile-info">
+                <img src="image/profilll.jpg" alt="Avatar" class="avatar">
+            </div>
+            <div class="profile-info">
+                <p>Email: <span id="email"></span></p>
+            </div>
+            <div class="logout-btn">
+                <a href="login.html" onclick="logout()">Logout</a>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+    <footer>
+        <div class="row">
+            <div class="col-1">
+                <h5><i class="fa fa-info" style="color: white"></i> Informasi :</h5>
+                <br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-1">
+                <h5><i class="fa fa-calendar-o" style="color: white"></i> Jam Kunjungan:</h5>
+                <p>Senin-Kamis 08.00-16.00</p>
+                <p>Sabtu-Minggu 08.00-14.00</p>
+                <p>Jumat dan Libur Nasional Tutup</p>
+                <br>
+                <h5><i class="fa fa-address-card" style="color: white"></i> Tiket:</h5>
+                <p>Pelajar/mahasiswa Rp 2.000</p>
+                <p>Umum Rp 3.000</p>
+                <p>Asing/pelajar asing Rp 10.000</p>
+                <br>
+            </div>
+            <div class="col-1">
+                <h5><i class="fa fa-thumb-tack" style="color: white"></i> ALAMAT</h5>
+                <p>Jalan Jend.Sudirman No. 06 Surakarta 57118, Jawa Tengah, Indonesia</p>
+                <br>
+                <h5><i class="fa fa-phone" style="color: white"></i> KONTAK KAMI</h5>
+                <p>Phone : + 62-22-721-3822</p>
+                <p>Fax : + 62-22-721-3822</p>
+                <p>Gmail : urbanbrushart@gmail.com</p>
+                <br>
+            </div>
+        </div>
+        <div class="copy">
+            <h5>Copyright <i class="fa fa-copyright" style="color: white"></i> 2024 | Galeri Seni Kita | UTS Pemograman
+                Web
+                | TI23A6 </h5>
+            <h6>| (230103191) & (230103152) |</h6>
+            <br>
+        </div>
+    </footer>
+
+</body>
+
+</html>

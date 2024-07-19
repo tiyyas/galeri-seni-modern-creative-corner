@@ -1,0 +1,271 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Tambahkan box-sizing untuk menghindari overflow */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #4e4e4e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+}
+
+.container {
+    background: #fff;
+    padding: 20px;
+    width: 500px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+.col-1::after {
+    content: '';
+    width: 10px;
+    height: 57%;
+    background: linear-gradient(#8B4513, #A0522D);
+    position: absolute;
+    left: -40px;
+    top: 8px;
+}
+
+.head {
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    text-align: left;
+    color: orange;
+}
+
+.text {
+    margin: 10px 0;
+    font-size: 1.1em;
+    text-align: left;
+    color: rgb(183, 115, 115);
+}
+
+.commentbox {
+    display: flex;
+    align-items: flex-start;
+    /* Ubah dari space-around ke flex-start */
+    margin-top: 20px;
+}
+
+.commentbox img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    /* Sesuaikan margin-right sesuai kebutuhan */
+    object-fit: cover;
+}
+
+.content {
+    width: 80%;
+}
+
+.user {
+    border: 1px solid #ccc;
+    outline: none;
+    padding: 20px;
+    margin-bottom: 10px;
+    font-size: 1em;
+    color: #333;
+    width: 100%;
+    /* Sesuaikan lebar input dengan padding */
+    background-color: #f7f7f7;
+    border-radius: 10px;
+}
+
+.commentinput input[type="text"] {
+    border: none;
+    outline: none;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 1em;
+    width: 100%;
+    /* Sesuaikan lebar input dengan padding */
+    background-color: #f5f2f2;
+}
+
+.buttons {
+    display: flex;
+    align-items: right;
+    justify-content: left;
+    margin-top: 10px;
+}
+
+.buttons>button {
+    padding: 10px 10px;
+    background-color: lightgrey;
+    color: white;
+    text-transform: uppercase;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 50%;
+    /* Sesuaikan lebar tombol */
+    box-sizing: border-box;
+    /* Pastikan box-sizing tetap border-box */
+}
+
+.buttons>button.abled {
+    background: blue;
+    color: #fff;
+}
+
+.notify {
+    display: flex;
+    align-items: center;
+}
+
+.notify input {
+    margin-right: 20px;
+}
+
+.policy {
+    margin-top: 20px;
+    font-size: 0.8em;
+    color: #888;
+    text-align: center;
+    /* Pusatkan teks */
+}
+
+.policy a {
+    text-decoration: none;
+    color: blue;
+}
+
+.parents {
+    display: flex;
+    align-items: flex-start;
+    /* Ubah dari center ke flex-start */
+    margin-bottom: 30px;
+}
+
+.parents h1 {
+    font-size: 1em;
+    color: orange;
+    margin-bottom: 5px;
+}
+
+.parents p {
+    color: #faf9f9;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+.parents img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+}
+
+.engagements {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.engagements img {
+    width: 20px;
+    margin-right: 10px;
+}
+
+.date {
+    color: #808080;
+    font-size: 0.8em;
+    margin-left: auto;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    width: 100%;
+}
+
+footer h5,
+footer h6 {
+    margin: 5px 0;
+}
+
+.peringatan {
+    color: red;
+}
+
+.donate_taital_main {
+    /* iki box seng bisa di scroll, sesuaikan yh */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    /* Tinggi div */
+    overflow: auto;
+    /* Munculkan scrollbar jika diperlukan */
+    border: 1px solid #ccc;
+    /* Garis tepi untuk membedakan */
+    padding: 10px;
+    /* Ruang dalam di dalam div */
+}
+
+.commentsContainer {
+    /* iki div semua komentar e, sesuaikan */
+    width: 100%;
+    flex-grow: 1;
+    /* Lebar maksimum container */
+    margin: 0 auto;
+    /* Posisi container di tengah halaman */
+    padding: 20px;
+    /* Ruang dalam container */
+    background-color: #f0f0f0;
+    /* Warna latar belakang */
+    border: 1px solid #ccc;
+    /* Garis tepi container */
+    border-radius: 8px;
+    /* Sudut melengkung border */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Shadow untuk efek raised */
+    overflow: hidden;
+}
+
+.comment {
+    /* iki box komentar e jdi pas ke sj */
+    margin-bottom: 15px;
+    /* Ruang antara setiap komentar */
+    padding: 10px;
+    /* Ruang dalam komentar */
+    background-color: #fff;
+    /* Warna latar belakang komentar */
+    border: 1px solid #ddd;
+    /* Garis tepi komentar */
+    border-radius: 4px;
+    /* Sudut melengkung border */
+    word-wrap: break-word
+}
+
+.comment .author {
+    /* iki tulisan anonymous e sesuaikan*/
+    font-weight: bold;
+    /* Tulisan tebal untuk nama pengirim */
+    color: #333;
+    /* Warna teks untuk nama pengirim */
+}
+
+.comment .message {
+    margin-top: 5px;
+    /* Ruang atas pesan */
+    color: #f20e0e;
+    /* Warna teks untuk pesan */
+    word-wrap: break-word;
+}
+
+.sendd {}

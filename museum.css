@@ -1,0 +1,308 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+}
+
+.container {
+	width: 100%;
+	min-height: 100vh;
+	background: #000000;
+	background: linear-gradient(to right, #000000, #a49182);
+	padding-left: 8%;
+	padding-right: 8%;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+
+.navbar {
+	width: 100%;
+	display: flex;
+	align-items: center;
+}
+
+.tlogo {
+	column-fill: #fff;
+	color: #FFA500;
+	padding-left: 0%;
+}
+
+#logo {
+	width: 70px;
+	cursor: pointer;
+	margin: 30px 0;
+}
+
+.rex {
+	width: 100%;
+	cursor: pointer;
+	margin: 30px 0;
+}
+
+.menu {
+	color: #ffffff;
+}
+
+.menu-icon {
+	width: 25px;
+	cursor: pointer;
+}
+
+nav {
+	flex: 1;
+	text-align: right;
+}
+
+nav ul li {
+	list-style: none;
+	display: inline-block;
+	margin-right: 15px;
+}
+
+nav ul li a {
+	text-decoration: none;
+	color: #000;
+	font-size: 15px;
+}
+
+
+footer {
+	position: relative;
+	padding: 12px 10px;
+	/*text-align: center;*/
+	background: linear-gradient(to right, #1a1a1d, #4e4e50);
+	color: #ffffff;
+}
+
+.copy {
+	text-align: center;
+}
+
+.col-1 {
+	flex-basis: 50%;
+	position: relative;
+	margin-left: 50px;
+}
+
+.col-2 {
+	flex-basis: 50%;
+	position: relative;
+	margin-left: 50px;
+}
+
+button {
+	width: 140px;
+	border: 0;
+	padding: 12px 10px;
+	outline: none;
+	color: #fff;
+	background: linear-gradient(to right, #8B4513, #A0522D);
+	border-radius: 6px;
+	cursor: pointer;
+}
+
+.row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 0px 0;
+}
+
+.col-1 {
+	flex-basis: 50%;
+	position: relative;
+	margin-left: 50px;
+}
+
+.col-1 h2 {
+	font-size: 39px;
+	color: #b7b7b7;
+}
+
+.col-1 h3 {
+	font-size: 30px;
+	color: #b7b7b7;
+	font-weight: 200;
+	margin: 20px 0 10px;
+}
+
+.col-1 h5 {
+	font-size: 20px;
+	color: #b7b7b7;
+	font-weight: 50;
+	margin: 20px 0 10px;
+}
+
+.col-1 p {
+	font-size: 16px;
+	color: #b7b7b7;
+	font-weight: 100;
+}
+
+.col-1::after {
+	content: '';
+	width: 10px;
+	height: 57%;
+	background: linear-gradient(#8B4513, #A0522D);
+	position: absolute;
+	left: -40px;
+	top: 8px;
+}
+
+.col-2 {
+	flex-basis: 60%;
+	position: relative;
+	display: flex;
+	margin-left: 50px;
+	align-items: center;
+}
+
+/*css login*/
+.login-box {
+	width: 280px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: #ffffff;
+}
+
+.login-box h1 {
+	float: left;
+	font-size: 40px;
+	border-bottom: 6px solid #FFD700;
+	margin-bottom: 50px;
+	padding: 13px 0;
+}
+
+.textbox {
+	width: 100%;
+	overflow: hidden;
+	font-size: 20px;
+	padding: 8px 0;
+	margin: 8px 0;
+	border-bottom: 1px solid #FFD700;
+}
+
+.textbox i {
+	width: 26px;
+	float: left;
+	text-align: center;
+}
+
+.textbox input {
+	border: none;
+	outline: none;
+	background: none;
+	color: #ffffff;
+	width: 80px;
+	float: left;
+	margin: 0 10px;
+}
+
+.btn {
+	display: inline-block;
+	padding: 10px 20px;
+	background-color: #333;
+	color: #fff;
+	text-decoration: none;
+	border-radius: 5px;
+	transition: background-color 0.3s;
+}
+
+.card {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	background: linear-gradient(to right, #000000, #8B4513);
+	transition: 0.3s;
+}
+
+.card:hover {
+	background-color: #8B4513;
+}
+
+.containers {
+	padding: 2px 16px;
+}
+
+/*css login-container*/
+.login-container {
+	background-color: #ffffff;
+	padding: 40px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	border-radius: 8px;
+	width: 100%;
+	max-width: 400px;
+	text-align: center;
+	margin: 20px auto;
+}
+
+h2 {
+	margin-bottom: 20px;
+	color: #333;
+}
+
+.input-group {
+	margin-bottom: 15px;
+	text-align: left;
+}
+
+label {
+	display: block;
+	margin-bottom: 5px;
+	color: #555;
+}
+
+input[type="text"],
+input[type="password"] {
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
+button {
+	width: 100%;
+	padding: 10px;
+	background-color: #5cb85c;
+	border: none;
+	border-radius: 4px;
+	color: white;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+button:hover {
+	background-color: #8B4513;
+}
+
+
+
+/* Tambahan CSS untuk halaman profile */
+
+.profile-container {
+	max-width: 600px;
+	margin: 20px auto;
+	padding: 20px;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-container h2 {
+	text-align: center;
+}
+
+.profile-info {
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+.profile-info .avatar {
+	width: 120px;
+	height: 120px;
+	border-radius: 50%;
+	margin-bottom: 10px;
+	object-fit: cover;
+}
